@@ -1,8 +1,15 @@
 // create basic express server
 const express = require("express");
+const connectDB = require("./config/db");
 
 // initialize express into variable called app
 const app = express();
+
+// Connect Database
+connectDB();
+
+// Init Middleware
+app.use(express.json({ extended: false }));
 
 // app route/ end point
 app.get("/", (req, res) =>
